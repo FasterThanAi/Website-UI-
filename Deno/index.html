@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deno.com ui clone</title>
+    <style>
+        :root {
+            --brand-black: #0b0b0b;
+            --muted: #6b7280;
+            --accent-green: #15d06e;
+            /* bright green similar to Deno */
+            --bg: #f8fafb;
+            --container-max: 1200px;
+            --radius: 999px;
+            --gap: 24px;
+            font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(180deg, #f6fbfd 0%, #eef7fb 100%);
+            line-height: 1.4;
+        }
+        .wrap {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 20px 28px;
+        }
+        header {
+            /* margin-top: 8px; */
+            padding: 16px 0px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            /* width: 100%;
+            max-height: 8rem; */
+            /* margin-left: 30px; */
+            /* border-bottom: 2px solid black; */
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* margin-left: auto;
+            width: 200px;
+            height: 6rem; */
+        }
+        .logo img {
+            width: 100px;
+            height: 48px;
+            object-fit: contain;
+        }
+        nav {
+            flex: 1;
+            /* nav takes remaining space */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+        nav li {
+            font-size: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            color: gray;
+        }
+        #id1 {
+            font-weight: bold;
+            color: black;
+        }
+        .nav-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search {
+            padding: 10px 16px;
+            border: 2px solid #e7f5fc00;
+            border-radius: 4px;
+            background: #9ac4d96c;
+            min-width: 180px;
+            font-size: 16px;
+        }
+        .search::placeholder {
+            color: #90a0ad;
+        }
+        main {
+            height: max-content;
+            margin-top: 36px;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding: 32px 0 80px 0;
+        }
+        .main-left {
+            flex: 1;
+            max-width: 680px;
+        }
+        .main-left h1 {
+            font-size: 64px;
+            line-height: 1.02;
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .main-left p {
+            font-size: 18px;
+            margin-bottom: 28px;
+            max-width: 52ch;
+        }
+        .main-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .btn-1 {
+            padding: 12px 22px;
+            border-radius: 32px;
+            border: none;
+            color: #041014;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            background: rgba(102, 205, 50, 0.69);
+        }
+        .btn-2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            color: white;
+            font-weight: 600;
+            border-radius: 32px;
+            background: black;
+        }
+
+        .btn-2 svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+        .main-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 460px;
+            max-width: 46%;
+        }
+        .main-img img {
+            width: 100%;
+            /* doubt   */
+            height: auto;
+            object-fit: contain;
+            border-radius: 16px;
+            border: white;
+        }
+
+        .site-footer {
+            margin-top: 48px;
+            padding: 22px 0;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid rgba(11, 11, 11, 0.06);
+            font-size: 14px;
+            background: transparent;
+        }
+        .site-footer a {
+            color: inherit;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo" aria-hidden="true">
+                <img src="Gemini_Generated_Image_4uive94uive94uiv.png" alt="Deno logo">
+            </div>
+
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li id="id1">Products</li>
+                    <li>Docs</li>
+                    <li>Modules</li>
+                    <li>Community</li>
+                    <li>Blog</li>
+
+                    <div class="nav-right">
+                        <input class="search" placeholder="Search..." aria-label="Search">
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="main-left">
+                <h1>Uncomplicate JavaScript</h1>
+                <p>Deno is the open-source JavaScript runtime for the modern web.</p>
+
+                <div class="main-actions">
+                    <button class="btn-1" type="button">Documentation &gt;</button>
+
+                    <button class="btn-2" type="button" aria-label="GitHub">
+                        <!-- GitHub SVG inside same button -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z" />
+                        </svg>
+                        <span>GitHub &nbsp; ></span>
+                    </button>
+                </div>
+            </section>
+
+            <aside class="main-img" aria-hidden="true">
+                <img src="Unknown.jpeg" alt="IMG">
+            </aside>
+        </main>
+    </div>
+         <footer class="site-footer" role="contentinfo">
+      © 2025 Priyanshu. All rights reserved. Created by Priyanshu.
+    </footer>
+    </body>
+
+</html>
